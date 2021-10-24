@@ -3,17 +3,15 @@ import { CommonModule } from '@angular/common';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { FormComponent } from './form/form.component';
 import { SuccessScreenComponent } from './success-screen/success-screen.component';
-
-
+import { CartScreenComponent } from './cart-screen/cart-screen.component';
 
 @NgModule({
   declarations: [
     ProductsListComponent,
     FormComponent,
-    SuccessScreenComponent
+    SuccessScreenComponent,
+    CartScreenComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
 })
-export class CartModule { }
+export class CartModule {}
