@@ -5,17 +5,14 @@ import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ShopScreenComponent } from './shop-screen/shop-screen.component';
 
-
-
 @NgModule({
   declarations: [
     ProductsListComponent,
     ProductComponent,
     ProductDetailComponent,
-    ShopScreenComponent
+    ShopScreenComponent,
   ],
-  imports: [
-    CommonModule
-  ]
+  imports: [CommonModule],
+  exports: [ShopScreenComponent],
 })
-export class ShopModule { }
+export class ShopModule {}
