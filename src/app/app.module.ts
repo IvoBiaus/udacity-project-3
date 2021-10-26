@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CartModule } from './cart/cart.module';
 import { ShopModule } from './shop/shop.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { ShopModule } from './shop/shop.module';
     AppRoutingModule,
     CartModule,
     ShopModule,
+    NoopAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
