@@ -1,9 +1,5 @@
-<p>products-list works!</p>
-<div *ngFor="let product of products">
-  <div>
-    <span>{{product.title}}</span>
-    <span>{{product.price}}</span>
-    <br/>
-    <br/>
-  </div>
+<div [ngClass]="'mainContainer'">
+  <div *ngIf="products.length == 0; then showSpinner else showProducts"></div>
+  <ng-template #showSpinner><mat-spinner></mat-spinner></ng-template>
+  <ng-template #showProducts><shop-product *ngFor="let product of products" [product]="product"></shop-product></ng-template>
 </div>
