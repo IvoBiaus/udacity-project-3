@@ -25,6 +25,5 @@ const materialComponents = [
     ShopScreenComponent,
   ],
   imports: [CommonModule, ...materialComponents],
-  exports: [ShopScreenComponent],
 })
 export class ShopModule {}

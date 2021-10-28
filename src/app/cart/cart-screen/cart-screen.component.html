@@ -1,1 +1,13 @@
-<p>cart-screen works!</p>
+<div [ngClass]="'main-container'">
+  <div *ngIf="isEmpty(); then thenBlock else elseBlock"></div>
+  <ng-template #thenBlock>
+    <cart-empty-cart></cart-empty-cart>
+  </ng-template>
+  <ng-template #elseBlock>
+    <cart-products-list></cart-products-list>
+    <div [ngClass]="'column'">
+      <h1>Total: ${{getTotal().toFixed(2)}}</h1>
+      <cart-form></cart-form>
+    </div>
+  </ng-template>
+</div>

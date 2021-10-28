@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+  <button mat-button aria-label="My Store" [routerLink]="''" >
+    My Store
+  </button>
+  <span [ngClass]="'spacer'"></span>
+  <button mat-icon-button aria-label="Cart" [routerLink]="'cart'" matBadgeColor="accent" matBadgePosition="before" matBadge={{getItemsAmount()}}>
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+</mat-toolbar>

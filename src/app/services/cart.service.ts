@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/product';
-
-interface Cart {
-  [key: string]: { item: Product; amount: number };
-}
+import { Cart } from '../interfaces/cart';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
   private products: Cart = {};
+  total: number = 0;
 
   constructor() {}
 
@@ -17,30 +15,38 @@ export class CartService {
     return this.products;
   }
 
-  addProduct(product: Product): Cart {
+  addProduct(product: Product): void {
     const productInCart = this.products[product.id] || { item: product };
     productInCart.amount = (productInCart.amount || 0) + 1;
 
     this.products[product.id] = productInCart;
-    return this.products;
+    this.total += productInCart.item.price;
   }
 
-  removeItem(removeId: number): Cart {
+  removeItem(removeId: number): void {
     if (this.products[removeId].amount > 1) {
       this.products[removeId].amount--;
+      this.total -= this.products[removeId].item.price;
     } else {
       this.removeProduct(removeId);
     }
-    return this.products;
   }
 
-  removeProduct(removeId: number): Cart {
+  removeProduct(removeId: number): void {
     delete this.products[removeId];
-    return this.products;
+
+    this.total = Object.values(this.products).reduce(
+      (a, b) => a + b.amount * b.item.price,
+      0
+    );
   }
 
-  clearCart(): Cart {
+  getItemsAmount(): number {
+    return Object.values(this.products).reduce((a, b) => a + b.amount, 0);
+  }
+
+  clearCart(): void {
     this.products = {};
-    return this.products;
+    this.total = 0;
   }
 }

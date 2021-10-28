@@ -1,1 +1,40 @@
-<p>form works!</p>
+<mat-stepper linear #stepper orientation="vertical">
+  <mat-step [stepControl]="personalFormGroup" errorMessage="Personal Information has errors.">
+    <form [formGroup]="personalFormGroup">
+      <ng-template matStepLabel>Personal Information</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="Evan" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Lastname</mat-label>
+        <input matInput placeholder="McLovin" formControlName="lastname" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="paymentFormGroup" errorMessage="Payment has errors.">
+    <form [formGroup]="paymentFormGroup">
+      <ng-template matStepLabel>Payment Information</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Card Number</mat-label>
+        <input matInput="number" placeholder="0011 2345 6789 1099" formControlName="cardNumber"
+               required maxlength="12" minlength="12">
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>Thats it, click Finish to submit your order.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button [routerLink]="'success'">Finish</button>
+    </div>
+  </mat-step>
+</mat-stepper>

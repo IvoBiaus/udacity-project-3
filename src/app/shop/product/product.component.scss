@@ -1,4 +1,6 @@
 .card {
+  display: flex;
+  flex-direction: column;
   width: 280px;
   margin: 20px 10px;
   height: 450px;
@@ -8,10 +10,21 @@
 .image {
   height: 280px;
   object-fit: contain;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.cart-info {
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: space-between;
 }
 
 .buttons {

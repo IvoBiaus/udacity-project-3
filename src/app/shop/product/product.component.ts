@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CartService } from 'src/app/services/cart.service';
 import { Product } from 'src/app/interfaces/product';
@@ -10,22 +11,27 @@ import { Product } from 'src/app/interfaces/product';
 })
 export class ProductComponent implements OnInit {
   @Input() product!: Product;
-  amount: number = 0;
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private router: Router) {}
 
   addToCart(): void {
-    const cart = this.cartService.addProduct(this.product);
-    this.amount++;
+    this.cartService.addProduct(this.product);
   }
 
   removeFromCart(): void {
-    const cart = this.cartService.removeItem(this.product.id);
-    this.amount--;
+    this.cartService.removeItem(this.product.id);
   }
 
-  atCart(): boolean {
-    return !!this.cartService.getProducts()[this.product.id];
+  getAmount(): number {
+    return this.cartService.getProducts()[this.product.id]?.amount || 0;
+  }
+
+  remove() {
+    this.cartService.removeProduct(this.product.id);
+  }
+
+  goToDetails() {
+    this.router.navigateByUrl(`/product/${this.product.id}`);
   }
 
   ngOnInit(): void {}

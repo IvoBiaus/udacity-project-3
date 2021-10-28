@@ -1,1 +1,28 @@
-<p>products-list works!</p>
+<div [ngClass]="'main-container'">
+  <mat-card [ngClass]="'card'" *ngFor="let product of getProducts()" >
+    <img [ngClass]="'image'" src={{product.image}} alt={{product.title}}>
+    <div [ngClass]="'product-info'">
+      <mat-card-header>
+        <mat-card-title>${{product.price}}</mat-card-title>
+        <mat-card-subtitle>{{product.title}}</mat-card-subtitle>
+      </mat-card-header>
+      <div [ngClass]="'cart-info'">
+        <div [ngClass]="'buttons'">
+          <button mat-icon-button (click)="removeFromCart(product)" color="warn" aria-label="Example icon button with a home icon">
+            <mat-icon>remove</mat-icon>
+          </button>      
+          <span>{{getAmount(product)}}</span>
+          <button mat-icon-button (click)="addToCart(product)" color="primary" aria-label="Example icon button with a home icon">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <div>
+          <span>${{(getAmount(product)*product.price).toFixed(2)}}</span>
+          <button mat-icon-button (click)="remove(product)" color="warn" aria-label="Example icon button with a home icon">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

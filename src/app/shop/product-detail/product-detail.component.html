@@ -1,1 +1,39 @@
-<p>product-detail works!</p>
+<div *ngIf="!!product; then showDetails else showSpinner"></div>
+<ng-template #showDetails>
+  <div [ngClass]="'main-container'" >
+    <img [ngClass]="'image'" src={{product!.image}} alt={{product!.title}}>
+    <div [ngClass]="'info'">
+      <h1>{{product!.title}}</h1>
+      <h3>${{product!.price}}</h3>
+      <span [ngClass]="'description'" >{{product!.description}}</span>
+      <div *ngIf="getAmount() > 0; then thenBlock else elseBlock"></div>
+      <ng-template #thenBlock>
+        <div [ngClass]="'cart-info'" >
+          <div [ngClass]="'buttons'">
+            <button mat-icon-button (click)="removeFromCart()" color="warn" aria-label="Example icon button with a home icon">
+              <mat-icon>remove</mat-icon>
+            </button>      
+            <span>{{getAmount()}}</span>
+            <button mat-icon-button (click)="addToCart()" color="primary" aria-label="Example icon button with a home icon">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+          <div>
+            <span>${{(getAmount()*product!.price).toFixed(2)}}</span>
+            <button mat-icon-button (click)="remove()" color="warn" aria-label="Example icon button with a home icon">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </ng-template>
+      <ng-template #elseBlock>
+        <button mat-raised-button color="primary" (click)="addToCart()">Add to cart</button>
+      </ng-template>
+    </div>
+  </div>
+</ng-template>
+<ng-template #showSpinner>
+  <div [ngClass]="'spinner-container'">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
