@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'cart-form',
@@ -16,8 +17,14 @@ import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 export class FormComponent implements OnInit {
   personalFormGroup!: FormGroup;
   paymentFormGroup!: FormGroup;
+  name: string = '';
+  lastname: string = '';
+  cardNumber: string = '';
 
-  constructor(private _formBuilder: FormBuilder) {}
+  constructor(
+    private _formBuilder: FormBuilder,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit() {
     this.personalFormGroup = this._formBuilder.group({
@@ -27,5 +34,13 @@ export class FormComponent implements OnInit {
     this.paymentFormGroup = this._formBuilder.group({
       cardNumber: ['', Validators.pattern('[0-9]*')],
     });
+  }
+
+  cardChange() {
+    if (this.paymentFormGroup.invalid && this.cardNumber.length === 12) {
+      this.snackBar.open('❌ Invalid Card information! ❌', undefined, {
+        duration: 3000,
+      });
+    }
   }
 }

@@ -4,11 +4,11 @@
       <ng-template matStepLabel>Personal Information</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Name</mat-label>
-        <input matInput placeholder="Evan" formControlName="name" required>
+        <input matInput placeholder="Evan" formControlName="name" [(ngModel)]="name" required>
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>Lastname</mat-label>
-        <input matInput placeholder="McLovin" formControlName="lastname" required>
+        <input matInput placeholder="McLovin" formControlName="lastname" [(ngModel)]="lastname" required>
       </mat-form-field>
       <div>
         <button mat-button matStepperNext>Next</button>
@@ -20,8 +20,8 @@
       <ng-template matStepLabel>Payment Information</ng-template>
       <mat-form-field appearance="fill">
         <mat-label>Card Number</mat-label>
-        <input matInput="number" placeholder="0011 2345 6789 1099" formControlName="cardNumber"
-               required maxlength="12" minlength="12">
+        <input matInput="number" placeholder="0011 2345 6789 1099" [(ngModel)]="cardNumber" formControlName="cardNumber"
+               required maxlength="12" minlength="12" (ngModelChange)="cardChange()">
       </mat-form-field>
       <div>
         <button mat-button matStepperPrevious>Back</button>
@@ -34,7 +34,7 @@
     <p>Thats it, click Finish to submit your order.</p>
     <div>
       <button mat-button matStepperPrevious>Back</button>
-      <button mat-button [routerLink]="'success'">Finish</button>
+      <button mat-button [routerLink]="'success'" >Finish</button>
     </div>
   </mat-step>
 </mat-stepper>

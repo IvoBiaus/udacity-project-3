@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
   styleUrls: ['./product-buttons.component.scss'],
 })
 export class ProductButtonsComponent implements OnInit {
+  snackDuration = 2000;
   @Input() product!: Product;
   @Output() cartChange: EventEmitter<null> = new EventEmitter();
 
@@ -22,13 +23,17 @@ export class ProductButtonsComponent implements OnInit {
 
   addToCart(): void {
     this.cartService.addProduct(this.product);
-    this.snackBar.open('1 Product item added 👕!');
+    this.snackBar.open('1 Product item added 👕!', undefined, {
+      duration: this.snackDuration,
+    });
     this.cartChange.emit();
   }
 
   removeFromCart(): void {
     this.cartService.removeItem(this.product.id);
-    this.snackBar.open('1 Product item removed 🔻!');
+    this.snackBar.open('1 Product item removed 🔻!', undefined, {
+      duration: this.snackDuration,
+    });
     this.cartChange.emit();
   }
 
@@ -38,7 +43,9 @@ export class ProductButtonsComponent implements OnInit {
 
   remove(): void {
     this.cartService.removeProduct(this.product.id);
-    this.snackBar.open('All Product items removed 🔥!');
+    this.snackBar.open('All Product items removed 🔥!', undefined, {
+      duration: this.snackDuration,
+    });
     this.cartChange.emit();
   }
 }
