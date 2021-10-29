@@ -4,7 +4,7 @@ import { Subscription } from 'rxjs';
 
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
-import { ProductsService } from '../../services/products.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'shop-product-detail',

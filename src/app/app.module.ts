@@ -10,10 +10,10 @@ import { MatBadgeModule } from '@angular/material/badge';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CartModule } from './cart/cart.module';
-import { ShopModule } from './shop/shop.module';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { HeaderComponent } from './header/header.component';
+import { CartModule } from './modules/cart/cart.module';
+import { ShopModule } from './modules/shop/shop.module';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const materialComponents = [
   MatToolbarModule,

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CartScreenComponent } from './cart/cart-screen/cart-screen.component';
-import { SuccessScreenComponent } from './cart/success-screen/success-screen.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { ProductDetailComponent } from './shop/product-detail/product-detail.component';
-import { ShopScreenComponent } from './shop/shop-screen/shop-screen.component';
+import { CartScreenComponent } from './modules/cart/cart-screen/cart-screen.component';
+import { SuccessScreenComponent } from './modules/cart/success-screen/success-screen.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { ProductDetailComponent } from './modules/shop/product-detail/product-detail.component';
+import { ShopScreenComponent } from './modules/shop/shop-screen/shop-screen.component';
 
 const routes: Routes = [
   {
