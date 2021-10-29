@@ -2,17 +2,17 @@
 <ng-template #thenBlock>
   <div [ngClass]="'cart-info'" >
     <div [ngClass]="'buttons'">
-      <button mat-icon-button (click)="removeFromCart()" color="warn" aria-label="Example icon button with a home icon">
+      <button mat-icon-button (click)="removeFromCart()" color="warn">
         <mat-icon>remove</mat-icon>
       </button>      
       <span>{{getAmount()}}</span>
-      <button mat-icon-button (click)="addToCart()" color="primary" aria-label="Example icon button with a home icon">
+      <button mat-icon-button (click)="addToCart()" color="primary">
         <mat-icon>add</mat-icon>
       </button>
     </div>
     <div>
       <span>${{(getAmount()*product.price).toFixed(2)}}</span>
-      <button mat-icon-button (click)="remove()" color="warn" aria-label="Example icon button with a home icon">
+      <button mat-icon-button (click)="remove()" color="warn">
         <mat-icon>delete</mat-icon>
       </button>
     </div>

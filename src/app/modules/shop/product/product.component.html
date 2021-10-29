@@ -1,9 +1,10 @@
-<mat-card [ngClass]="'card'">
+<mat-card [ngClass]="'card'" matRipple [matRippleTrigger]="trigger">
   <img mat-card-image [ngClass]="'image'" src={{product.image}} alt={{product.title}}  (click)="goToDetails()">
   <mat-card-header>
     <mat-card-title>${{product.price}}</mat-card-title>
     <mat-card-subtitle>{{product.title}}</mat-card-subtitle>
   </mat-card-header>
   <div [ngClass]="'spacer'"></div>
-  <shared-product-buttons [product]="product"></shared-product-buttons>
+  <shared-product-buttons [product]="product" (cartChange)="launchRipple()"></shared-product-buttons>
+  <div #trigger></div>
 </mat-card>
