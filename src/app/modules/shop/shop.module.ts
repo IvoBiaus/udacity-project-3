@@ -6,7 +6,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductComponent } from './product/product.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
+import { SharedComponentsModule } from 'src/app/modules/shared-components/shared-components.module';
 
 const materialComponents = [MatCardModule, MatProgressSpinnerModule];
 

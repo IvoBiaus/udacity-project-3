@@ -12,7 +12,7 @@ import { FormComponent } from './form/form.component';
 import { SuccessScreenComponent } from './success-screen/success-screen.component';
 import { CartScreenComponent } from './cart-screen/cart-screen.component';
 import { EmptyCartComponent } from './empty-cart/empty-cart.component';
-import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
+import { SharedComponentsModule } from 'src/app/modules/shared-components/shared-components.module';
 
 const materialComponents = [
   MatButtonModule,

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 import { Product } from 'src/app/interfaces/product';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -10,16 +12,21 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductButtonsComponent implements OnInit {
   @Input() product!: Product;
 
-  constructor(private cartService: CartService) {}
+  constructor(
+    private cartService: CartService,
+    private snackBar: MatSnackBar
+  ) {}
 
   ngOnInit(): void {}
 
   addToCart(): void {
     this.cartService.addProduct(this.product);
+    this.snackBar.open('1 Product item added 👕!');
   }
 
   removeFromCart(): void {
     this.cartService.removeItem(this.product.id);
+    this.snackBar.open('1 Product item removed 🔻!');
   }
 
   getAmount(): number {
@@ -28,5 +35,6 @@ export class ProductButtonsComponent implements OnInit {
 
   remove(): void {
     this.cartService.removeProduct(this.product.id);
+    this.snackBar.open('All Product items removed 🔥!');
   }
 }
