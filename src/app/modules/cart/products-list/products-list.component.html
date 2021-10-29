@@ -6,23 +6,7 @@
         <mat-card-title>${{product.price}}</mat-card-title>
         <mat-card-subtitle>{{product.title}}</mat-card-subtitle>
       </mat-card-header>
-      <div [ngClass]="'cart-info'">
-        <div [ngClass]="'buttons'">
-          <button mat-icon-button (click)="removeFromCart(product)" color="warn" aria-label="Example icon button with a home icon">
-            <mat-icon>remove</mat-icon>
-          </button>      
-          <span>{{getAmount(product)}}</span>
-          <button mat-icon-button (click)="addToCart(product)" color="primary" aria-label="Example icon button with a home icon">
-            <mat-icon>add</mat-icon>
-          </button>
-        </div>
-        <div>
-          <span>${{(getAmount(product)*product.price).toFixed(2)}}</span>
-          <button mat-icon-button (click)="remove(product)" color="warn" aria-label="Example icon button with a home icon">
-            <mat-icon>delete</mat-icon>
-          </button>
-        </div>
-      </div>
+      <shared-product-buttons [product]="product"></shared-product-buttons>
     </div>
   </mat-card>
 </div>

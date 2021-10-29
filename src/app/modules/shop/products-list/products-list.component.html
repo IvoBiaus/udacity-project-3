@@ -1,5 +1,9 @@
 <div [ngClass]="'main-container'">
   <div *ngIf="products.length == 0; then showSpinner else showProducts"></div>
-  <ng-template #showSpinner><mat-spinner></mat-spinner></ng-template>
-  <ng-template #showProducts><shop-product *ngFor="let product of products" [product]="product"></shop-product></ng-template>
+  <ng-template #showSpinner>
+    <mat-spinner></mat-spinner>
+  </ng-template>
+  <ng-template #showProducts>
+    <shop-product *ngFor="let product of products" [product]="product"></shop-product>
+  </ng-template>
 </div>

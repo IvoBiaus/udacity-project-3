@@ -32,20 +32,4 @@ export class ProductDetailComponent implements OnInit {
   ngOnDestroy() {
     this.routeSub.unsubscribe();
   }
-
-  addToCart(): void {
-    this.cartService.addProduct(this.product!);
-  }
-
-  removeFromCart(): void {
-    this.cartService.removeItem(this.product!.id);
-  }
-
-  getAmount(): number {
-    return this.cartService.getProducts()[this.product!.id]?.amount || 0;
-  }
-
-  remove() {
-    this.cartService.removeProduct(this.product!.id);
-  }
 }

@@ -6,20 +6,19 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
 
 import { ProductsListComponent } from './products-list/products-list.component';
 import { FormComponent } from './form/form.component';
 import { SuccessScreenComponent } from './success-screen/success-screen.component';
 import { CartScreenComponent } from './cart-screen/cart-screen.component';
 import { EmptyCartComponent } from './empty-cart/empty-cart.component';
+import { SharedComponentsModule } from 'src/app/shared-components/shared-components.module';
 
 const materialComponents = [
   MatButtonModule,
   MatInputModule,
   MatStepperModule,
   MatCardModule,
-  MatIconModule,
 ];
 
 @NgModule({
@@ -35,6 +34,7 @@ const materialComponents = [
     FormsModule,
     RouterModule,
     ReactiveFormsModule,
+    SharedComponentsModule,
     ...materialComponents,
   ],
 })
